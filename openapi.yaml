@@ -1,0 +1,60 @@
+openapi: 3.0.0
+info:
+  title: Clinic Mock API
+  version: "1.0.0"
+paths:
+  /patients:
+    post:
+      summary: Create patient
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Patient'
+      responses:
+        '201':
+          description: Created
+    get:
+      summary: List patients
+      responses:
+        '200':
+          description: OK
+  /claims:
+    post:
+      summary: Create claim
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Claim'
+      responses:
+        '201':
+          description: Created
+    get:
+      summary: List claims
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    Patient:
+      type: object
+      properties:
+        name: { type: string }
+        phone: { type: string }
+        appointment_date: { type: string, format: date-time }
+        email: { type: string }
+        nhif_number: { type: string }
+        city: { type: string }
+      required: [name, phone, appointment_date]
+    Claim:
+      type: object
+      properties:
+        patient_id: { type: string }
+        amount: { type: number }
+        services:
+          type: array
+          items: { type: string }
+      required: [patient_id, amount]
