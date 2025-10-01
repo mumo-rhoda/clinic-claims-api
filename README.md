@@ -1,7 +1,7 @@
 # Clinic Mock API - Production-ready MVP
 
 Lightweight Node/Express service for demoing patient intake, appointment claims and integrations.
-**For portfolio use only — uses synthetic data.**
+**only — uses synthetic data.**
 
 ## Quickstart (local)
 1. cp .env.example .env and edit
